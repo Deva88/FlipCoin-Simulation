@@ -1,13 +1,22 @@
 #!/bin/bash -x
 
-#CONSTANT
-HEAD=0
+totalcount=100
 
-#TO PRINT THE HEAD AND TAIL
-flipCoin=$((RANDOM%2))
-if [ $flipCoin == $HEAD ]
+#variables
+headcount=0
+tailcount=0
+
+while [ $totalcount -gt 0 ]
+do
+if [ $((RANDOM%2)) -eq 1 ]
 then
-	echo "Head"
+# let is use for evaluate
+let headcount++
 else
-	echo "Tail"
+let tailcount++
 fi
+let totalcount--
+done
+
+echo "tail wins $tailcount times"
+echo "head wins $headcount times"
